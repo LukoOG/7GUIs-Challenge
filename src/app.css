@@ -1,3 +1,38 @@
-@import 'tailwindcss';
-@plugin '@tailwindcss/forms';
-@plugin '@tailwindcss/typography';
+:root{
+    --highlight: #ff3f20;
+    --surface-2: #4d8fc5;
+    --surface-3: #ffffff;
+}
+
+html, body{
+    width: 100%;
+}
+body{
+    height: 100%;
+    overflow: hidden;
+    place-content: center;
+    display: grid;
+    border: black 1px solid;
+}
+
+a{
+    text-decoration: none;
+    font-size: 24px;
+    font-family: Arial, Helvetica, sans-serif;
+    /* padding-left: 12px; */
+    padding: 4px 12px;
+}
+
+select,
+input {
+	width: 100%;
+	background-color: var(--surface-3);
+}
+
+option:checked {
+	background: linear-gradient(0deg, var(--highlight) 0%, var(--highlight) 100%);
+}
+
+input[disabled] {
+	background-color: var(--surface-2);
+}
