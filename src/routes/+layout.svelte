@@ -27,7 +27,7 @@
 		{label: "Temperature Calculator", path: "02-Temperature-Calculator"},
 		{label: "Flight Booker", path: "03-Flight-Booker"},
 		{label: "Timer", path: "04-Timer"},
-		{label: "CRD", path: "05-CRUD"},
+		{label: "CRUD", path: "05-CRUD"},
 		{label: "Circle Drawer", path: "06-Circle-Drawer"},
 		{label: "Cells", path: "07-Cells"},
 	]
