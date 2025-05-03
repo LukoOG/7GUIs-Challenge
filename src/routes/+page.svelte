@@ -17,4 +17,10 @@
       position: relative;
       top: 2px;
     }
+
+    a{
+      &:hover{
+        color: var(--highlight)
+      }
+    }
   </style>

@@ -1,7 +1,14 @@
+@import 'open-props/style';
+@import 'open-props/normalize';
+@import 'open-props/buttons';
+
 :root{
+    --background-clr: var(--gray-10);
     --highlight: #ff3f20;
-    --surface-2: #4d8fc5;
-    --surface-3: #ffffff;
+	--surface-1: var(--gray-10);
+	--surface-2: var(--gray-9);
+    --surface-3: var(--gray-8);
+	accent-color: var(--highlight);
 }
 
 html, body{
@@ -12,16 +19,19 @@ body{
     overflow: hidden;
     place-content: center;
     display: grid;
-    border: black 1px solid;
+    background-color: var(--surface-1);
+    font-family: 'Times New Roman', Times, serif;
+    color: #fff;
 }
 
 a{
     text-decoration: none;
     font-size: 24px;
-    font-family: Arial, Helvetica, sans-serif;
+    color: #828083;
     /* padding-left: 12px; */
     padding: 4px 12px;
 }
+
 
 select,
 input {
@@ -35,4 +45,25 @@ option:checked {
 
 input[disabled] {
 	background-color: var(--surface-2);
+}
+
+.space-x > * + * {
+	--gap: 1rem;
+	margin-inline-start: var(--gap);
+}
+
+.space-y > * + * {
+	--gap: 1rem;
+	margin-block-start: var(--gap);
+}
+
+.flex-gap{
+    display: flex;
+    gap: 0.5rem;
+    place-content: center;
+}
+
+.grid-gap{
+    display: grid;
+    gap: 0.5rem;
 }

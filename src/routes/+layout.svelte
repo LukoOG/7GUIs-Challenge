@@ -1,5 +1,5 @@
 {#snippet arrow()}
-<svg version="1.1" id="icons_1_" xmlns="http://www.w3.org/2000/svg" height="36" width="36" class:rotate={open} viewBox="0 0 128 128" style="transition: rotate 0.3s" xml:space="preserve">
+<svg version="1.1" id="icons_1_" xmlns="http://www.w3.org/2000/svg" height="50" width="50" class:rotate={open} viewBox="0 0 128 128" style="transition: rotate 0.3s" xml:space="preserve">
 	<path d="M64 0C28.7 0 0 28.7 0 64s28.7 64 64 64 64-28.7 64-64S99.3 0 64 0zm0 121.6C32.2 121.6 6.4 95.8 6.4 64S32.2 6.4 64 6.4s57.6 25.8 57.6 57.6-25.8 57.6-57.6 57.6zM49.2 38.4 73.6 64 49.2 89.6h13.5L86.4 64 62.7 38.4H49.2z" id="_x32__2_"/>
 </svg>
 {/snippet}
@@ -24,16 +24,20 @@
 	let { children } = $props();
 	let pages: pagesT[] = [
 		{label: "Counter", path: "01-Counter"},
-		{label: "Counter", path: "01-Counter"},
-		{label: "Counter", path: "01-Counter"},
-		{label: "Counter", path: "01-Counter"},
-		{label: "Counter", path: "01-Counter"},
-		{label: "Counter", path: "01-Counter"},
-		{label: "Counter", path: "01-Counter"},
+		{label: "Temperature Calculator", path: "02-Temperature-Calculator"},
+		{label: "Flight Booker", path: "03-Flight-Booker"},
+		{label: "Timer", path: "04-Timer"},
+		{label: "CRD", path: "05-CRUD"},
+		{label: "Circle Drawer", path: "06-Circle-Drawer"},
+		{label: "Cells", path: "07-Cells"},
 	]
 	let open: boolean = $state(false)
 	let currentpage = $derived(page.params.challenge)
 </script>
+
+<svelte:head>
+	<title>7 GUI Tasks by Sipe</title>
+</svelte:head>
 
 <div class='container' class:grid={open}>
 	<button class='menu-btn' onclick={()=>open =!open}>	
@@ -41,8 +45,8 @@
 	</button>
 	
 	{#if open}
-		<aside class='left' transition:fly={{duration: 200, x: -400}}>
-			<div class='nav-container'>
+		<aside transition:fly={{duration: 200, x: -400}}>
+			<div class='nav-container space-y'>
 				<div class='title'>
 					{@render svelte()}
 					<h2>7 GUIS</h2>
@@ -66,16 +70,18 @@
 
 <style>
 	.container{
-		height: 100vh;
+		height: 100%;
 		.menu-btn {
 			position: absolute;
 			z-index: 10;
 			left: 20px;
-			bottom:0px;
+			bottom:10px;
 			background: none;
 			outline: none;
 			border: none;
 			padding: 1px;
+			background-color: white;
+			font-size: 36px;
 		}
 		aside{
 			position: absolute;
@@ -84,8 +90,9 @@
 			left: 0px;
 			bottom: 0px;
 			width: 280px;
-			border: black 1px solid;
-			box-shadow: 2px 2px 10px 3px;
+			border-right: 1px solid var(--gray-8);
+			/* box-shadow: 2px 2px 10px 3px; */
+			box-shadow: var(--shadow-6);
 			backdrop-filter: contrast(98%) blur(20px);
 			z-index: 5;
 		}
@@ -93,9 +100,9 @@
 			.title{
 				display: flex;
 				flex-direction: row;
-				/* align-items: center; */
 				justify-content: center;
-				padding: 4px;
+				padding: var(--size-7);
+				gap: var(--size-1);
 			}
 			.nav{
 				display: grid;
@@ -106,7 +113,6 @@
 
 	a{
 		font-weight: 600;
-		color: #0a0606;
 		text-transform: capitalize;
 		text-decoration: none;
 
