@@ -1,19 +1,34 @@
 <script lang='ts'>
-    let counter = $state(0)
+    type Options = "one-way" | "return"
+
+    let selected = $state<Options>('one-way')
 </script>
 
-<div class='flex-gap'>
-        <input type='number' bind:value={counter} readonly>
-        <button onclick={()=>counter++}>
-            increment
-        </button>
-</div>
+<form class='grid-space'>
+    <select bind:value={selected}>
+        <option value='one-way'>One way Flight</option>
+        <option value='return'>Return Flight</option>
+    </select>
+
+    <label>
+        <span>Pick Start Date</span>
+        <input>
+    </label>
+
+    <label>
+        <span>Pick End Date:</span>
+        <input>
+    </label>
+
+    <button>
+        Book
+    </button>
+</form>
 
 <style>
-    button{
-        text-decoration: none;
-        background-color: #111;
-        outline: none;
-        border: none;
+    form{
+        width: 50%;
+        margin: 0 auto;
+        padding: 20px;
     }
 </style>
