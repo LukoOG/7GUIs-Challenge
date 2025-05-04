@@ -7,20 +7,20 @@
     function start(){
         interval = setInterval(() => {
             e+=0.1
-            if(e >= d){
-                // e = 0
+            if(e > d){
+                console.log(interval)
                 clearInterval(interval)
             }
         }, 100);
     }
-
+    
     function reset() {
+        clearInterval(interval)
         e = 0
-        start()
     }
 
     $effect(() => {
-        if(!d || d < e) return //this makes it reactive to d, so that when d is increased, the timer starts again. d < e makes sure  it doesn't react if it's decreased
+        if(!d || d < e  || e > d) return //this makes it reactive to d, so that when d is increased, the timer starts again. d < e makes sure  it doesn't react if it's decreased
         start()
         return ()=>{clearInterval(interval)}
     })
