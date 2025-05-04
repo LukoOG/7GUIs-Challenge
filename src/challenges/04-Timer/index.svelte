@@ -21,7 +21,7 @@
 
     $effect(() => {
         if(!d || d < e  || e > d) return //this makes it reactive to d, so that when d is increased, the timer starts again. d < e makes sure  it doesn't react if it's decreased
-        start()
+        start() //try adding conditional for e < d to start interval
         return ()=>{clearInterval(interval)}
     })
 </script>
