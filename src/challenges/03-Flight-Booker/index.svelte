@@ -2,9 +2,29 @@
     type Options = "one-way" | "return"
 
     let selected = $state<Options>('one-way')
+        
+    const getDate = () =>{
+        let today = new Date()
+        let [month, date, year] = today
+        .toLocaleDateString('en-us', {year: "numeric", month: "2-digit", day: "2-digit"})
+        .split('/')
+        return `${year}-${month}-${date}`
+    }
+
+    let maxDate = getDate()
+        
+    let startDate = $state(getDate())
+    let returnDate = $state(getDate())
+
+    const handleSubmit= (e: Event) => {
+        e.preventDefault();
+        alert(`You have booked a ${selected} flight on ${startDate}`)
+    }
+
+    $inspect({startDate, returnDate, selected})
 </script>
 
-<form class='grid-space'>
+<form onsubmit={handleSubmit} class='grid-space'>
     <select bind:value={selected}>
         <option value='one-way'>One way Flight</option>
         <option value='return'>Return Flight</option>
@@ -12,15 +32,15 @@
 
     <label>
         <span>Pick Start Date</span>
-        <input>
+        <input type='date' min={getDate()} bind:value={startDate}>
     </label>
 
     <label>
         <span>Pick End Date:</span>
-        <input>
+        <input type='date' disabled={selected != "return"} min={startDate} bind:value={returnDate}>
     </label>
 
-    <button>
+    <button disabled={selected == "return" && returnDate < startDate}>
         Book
     </button>
 </form>
