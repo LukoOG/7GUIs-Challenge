@@ -43,7 +43,7 @@
 	<button class='menu-btn' onclick={()=>open =!open}>	
 		{@render arrow()}
 	</button>
-	
+	<!-- remember to push to production with vercel --prod  -->
 	{#if open}
 		<aside transition:fly={{duration: 200, x: -400}}>
 			<div class='nav-container space-y'>
