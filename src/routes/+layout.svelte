@@ -36,7 +36,8 @@
 </script>
 
 <svelte:head>
-	<title>7 GUI Tasks by Sipe</title>
+	<title>7GUI Tasks by Sipe01</title>
+	<link rel="icon" type="image/svg" href={"/svelte-icon.svg/"} />
 </svelte:head>
 
 <div class='container' class:grid={open}>

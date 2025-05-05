@@ -8,7 +8,7 @@
 </script>
 
 <div>
-    This is my solution using<a href="https://svelte.dev/">Svelte {@render anchor()}</a> to implement the <a href="https://eugenkiss.github.io/7guis/"> 7GUIs: A GUI Programming Benchmark {@render anchor()}</a> tasks.
+    This is my solution using<a href="https://svelte.dev/">Sveltekit {@render anchor()}</a> to implement the <a href="https://eugenkiss.github.io/7guis/"> 7GUIs: A GUI Programming Benchmark {@render anchor()}</a> tasks.
 </div>
 
 <style>
@@ -22,5 +22,9 @@
       &:hover{
         color: var(--highlight)
       }
+    }
+
+    div{
+      font-size: 24px
     }
   </style>
